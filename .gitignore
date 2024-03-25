@@ -1,0 +1,12 @@
+# Packages
+node_modules
+
+
+
+.vscode
+package-lock.json
+
+# Tokens
+commands/clip/google/credentials.json
+commands/clip/google/token.json
+commands/clip/google/__pycache__

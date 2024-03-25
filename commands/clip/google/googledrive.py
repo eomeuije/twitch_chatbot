@@ -18,7 +18,7 @@ class Upload:
         "https://www.googleapis.com/auth/drive",
         "https://www.googleapis.com/auth/youtube.upload"
     ]
-    twitch_id = 'bijou_v'
+    twitch_id = ''
     lock = threading.Lock()
 
     def getCreds(self) -> Credentials:
@@ -106,13 +106,12 @@ class Upload:
                     print(F'File with ID: "{service_result.get("id")}" has been uploaded.')
                     media.stream().close()
                     
-                    if 'bijou' in self.twitch_id:
-                        title = file
-                        invalid_chars_pattern = re.compile(r'[<>:\"/\\\|\?\*]|\'+')
+                    # title = file
+                    # invalid_chars_pattern = re.compile(r'[<>:\"/\\\|\?\*]|\'+')
 
-                        title = re.sub(invalid_chars_pattern, '', title)
-                        title = file.replace('.mp4', '')
-                        youtubeupload.initialize_upload(youtube_service, file_full_path, title, title, youtubeupload.VALID_PRIVACY_STATUSES[0], '비쥬,bijou,쥬텐쨩,버튜버,스트리머,버츄얼 스트리머', '20')
+                    # title = re.sub(invalid_chars_pattern, '', title)
+                    # title = file.replace('.mp4', '')
+                    # youtubeupload.initialize_upload(youtube_service, file_full_path, title, title, youtubeupload.VALID_PRIVACY_STATUSES[0], '', '20')
 
                     if os.path.isfile(file_full_path):
                         os.remove(file_full_path)                      
@@ -135,4 +134,4 @@ class Upload:
 
 if __name__ == '__main__':
     u = Upload()
-    u.upload('bijou_v_clips')
+    u.upload('')
